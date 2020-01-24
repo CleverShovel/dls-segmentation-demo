@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{{ super() }}
+<div class="container-fluid">
+  <form class="form" method="post" role="form" enctype="multipart/form-data">
+    {{ form.csrf_token() }}
+    {{ wtf.form_errors(form, hiddens="only") }}
+
+    {{ wtf.form_field(form.image) }}
+    <input class="btn btn-primary" type="submit" value="Upload">
+  </form>
+</div>
+<hr>
+<div class="container-fluid row">
+  {% if in_url and out_url %}
+  <div class="col-md-6">
+    <img src="{{ in_url }}">
+  </div>
+  <div class="col-md-6">
+    <img src="{{ out_url }}">
+  </div>
+  {% elif in_url %}
+  <img src="{{ in_url }}">
+  {% endif %}
+</div>
+{% endblock %}

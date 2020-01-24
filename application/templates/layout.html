@@ -1,0 +1,14 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}Segmentation Demo{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{url_for('main_bp.index')}}">Main Page</a>
+      <a class="navbar-brand" href="{{url_for('main_bp.segmentation')}}">Segmentation</a>
+    </div>
+  </div>
+</nav>
+{% endblock %}
