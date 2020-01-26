@@ -22,19 +22,14 @@ def index():
 @main_bp.route('/seg', methods=['GET', 'POST'])
 def segmentation():
     form = UploadImage()
+    in_url = None
+    out_url = None
     if form.validate_on_submit():
         filename = images.save(form.image.data)
         in_url = images.url(filename)
         out_url = images.url(evaluate_image(app.config['UPLOADED_IMAGES_DEST']+'/'+filename))
-        return redirect(url_for('main_bp.segmentation_result', in_url=in_url, out_url=out_url))
-    return render_template('seg.html', form=form)
-
-
-@main_bp.route('/segres')
-def segmentation_result():
-    in_url  = request.args.get('in_url', None)
-    out_url  = request.args.get('out_url', None)
-    return render_template('seg_res.html', in_url=in_url, out_url=out_url)
+        return render_template('seg.html', form=form, in_url=in_url, out_url=out_url)
+    return render_template('seg.html', form=form, in_url=in_url, out_url=out_url)
 
 
 # @main_bp.route('/user/<int:id>', methods=['GET', 'POST'])

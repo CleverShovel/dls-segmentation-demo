@@ -12,4 +12,15 @@
     <input class="btn btn-primary" type="submit" value="Upload">
   </form>
 </div>
+<hr>
+{% if in_url and out_url %}
+<div class="container-fluid row">
+  <div class="col-md-6">
+    <img class="img-responsive" src="{{ in_url }}">
+  </div>
+  <div class="col-md-6">
+    <img class="img-responsive" src="{{ out_url }}">
+  </div>
+</div>
+{% endif %}
 {% endblock %}
