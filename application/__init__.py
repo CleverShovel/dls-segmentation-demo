@@ -3,6 +3,7 @@ from flask_bootstrap import Bootstrap
 from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
 from .forms import images
 
+
 def create_app():
     """Construct the core application."""
     app = Flask(__name__, instance_relative_config=False)
