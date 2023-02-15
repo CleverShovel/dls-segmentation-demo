@@ -2,7 +2,7 @@ Flask==1.1.1
 Flask_WTF==0.14.2
 numpy==1.18.1
 torchvision==0.5.0
-Werkzeug==0.16.0
+Werkzeug==2.2.3
 torch==1.4.0
 Flask_Uploads==0.2.1
 Flask_Bootstrap==3.3.7.1
